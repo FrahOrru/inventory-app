@@ -23,8 +23,10 @@
     "@clr/angular": "5.0.0",
     "@clr/icons": "^5.0.0",
     "@clr/ui": "5.0.0",
+    "@types/lodash": "^4.14.168",
     "@webcomponents/custom-elements": "^1.4.3",
     "clarity-icons": "^0.10.28",
+    "lodash": "^4.17.20",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

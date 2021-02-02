@@ -13,6 +13,8 @@ export class ProductsComponent implements OnInit {
   products$: Observable<IProduct[]> = this.productService.products$;
   delete = false;
   productToBeDeleted;
+  productOpen;
+  selectedProduct: IProduct;
 
   constructor(private productService: ProductService) { }
 
@@ -37,6 +39,26 @@ export class ProductsComponent implements OnInit {
     this.productService.removeProduct(this.productToBeDeleted);
   }
 
-  addProduct(){}
-  onEdit(){}
+  addProduct(){
+    this.productOpen = true;
+    this.selectedProduct = undefined;
+  }
+
+  onEdit(product){
+    this.productOpen = true;
+    this.selectedProduct = product;
+  }
+
+  handleFinish(event){
+    if(event && event.product){
+      if(this.selectedProduct){
+        this.productService.editProduct(this.selectedProduct.id, event.product)
+      }
+      else{
+        this.productService.addProduct(event.product);
+      }
+    }
+    this.productOpen = false;
+  }
+
 }
